@@ -29,7 +29,11 @@ export class GeoJSONSourceComponent
   @Input() id: string;
 
   /* Dynamic inputs */
-  @Input() data?: GeoJSONSourceOptions['data'];
+  @Input() data?:
+    | GeoJSON.Feature<GeoJSON.Geometry>
+    | GeoJSON.FeatureCollection<GeoJSON.Geometry>
+    | string
+    | undefined; //GeoJSONSourceOptions['data'];
   @Input() maxzoom?: GeoJSONSourceOptions['maxzoom'];
   @Input() attribution?: GeoJSONSourceOptions['attribution'];
   @Input() buffer?: GeoJSONSourceOptions['buffer'];
